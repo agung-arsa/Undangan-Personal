@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Mepandes</title>
+
+    <!-- Menambahkan font dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <style>
+        /* Mengatur gambar latar belakang */
+        body {
+            font-family: 'The Nautigal', cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('B1.jpg'); /* Mengatur gambar latar belakang */
+            background-size: cover; /* Membuat gambar latar belakang menutupi seluruh layar */
+            background-position: center; /* Menjaga gambar tetap terpusat */
+            background-attachment: fixed; /* Menetapkan gambar latar belakang tetap saat halaman digulir */
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+            border-radius: 10px;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1, .footer h2 {
+            margin: 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }        
+        .content {
+            line-height: 1.6;
+            display: none;
+            opacity: 0; /* Menyembunyikan konten awal */
+            transform: translateY(50px); /* Posisi awal konten di bawah */
+            transition: opacity 1s ease, transform 1s ease; /* Menambahkan transisi */
+            background: rgba(255, 255, 255, 0); /* Membuat latar belakang konten transparan */
+        }
+        .active {
+            display: block;
+            opacity: 1; /* Konten muncul secara perlahan */
+            transform: translateY(0); /* Konten bergerak dari bawah ke atas */
+        }
+        .event-details {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .event-details .line {
+            border-bottom: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .event-details .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .event-details .row div {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .event-details .row div img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .map {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 5px;
+        }
+        .button {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button button:hover {
+            background-color: #0056b3;
+        }
+        /* Styling untuk kotak daftar peserta */
+        .participant-box {
+            background-color: #f3f3f3;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .participant-box h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .participant-box p {
+            margin: 5px 0;
+        }
+        .participant-box .line {
+            border-bottom: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .participant-list {
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .button button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .event-details .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script>
+        function showContent() {
+            // Menambahkan kelas 'active' untuk menampilkan konten dengan transisi
+            document.querySelector('.content').classList.add('active');
+            document.querySelector('.button').style.display = 'none';
+
+            // Memutar musik setelah tombol diklik
+            var audio = document.getElementById('invitation-audio');
+            audio.play();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <center><img src="Mepandes.png" alt="logo"></center>
+        <!-- Halaman Penutup -->
+        <div class="header">
+            <h1>Undangan Mepandes</h1>
+            <p>Dengan hormat,</p>
+            <p>Atas Asung Kerta Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i pada Upacara Adat Manusia Yadnya, Mepandes (Potong Gigi) Putra/Putri kami.</p>
+        </div>
+
+        <div class="button">
+            <button onclick="showContent()">Klik untuk Membuka Undangan</button>
+        </div>
+
+        <!-- Menambahkan elemen audio untuk memutar lagu -->
+        <audio id="invitation-audio" src="lagu.mp3" preload="auto"></audio>
+
+        <!-- Isi Undangan -->
+        <div class="content">
+            <div>
+                <h2>Peserta Mepandes</h2>
+                <div class="participant-list">
+                    <div class="participant-box">
+                        <h4>Anak Agung Gede Raka Paramasutha,S.K.M.</h4>
+                        <h4>Anak Agung Istri Wulan Pangestuti,S.Psi.</h4>
+                        <p>Putra dan Putri dari pasangan</p>
+                        <p><strong>A.A.Gd.Raka Dharmasemaya,S.K.M.,M.Sc.,Ph.D. dan A.A.Ayu Mayun Artati,S.S.T., M.Sn.</strong></p>
+                    </div>
+                    <div class="participant-box">
+                        <h4>Anak Agung Putu Arsa Suryantana</h4>
+                        <h4>Anak Agung Putri Chandra Dwivasari</h4>
+                        <p>Putra dan Putri dari pasangan</p>
+                        <p><strong>A.A.Gd.A.Pujanggayasa,S.S. dan Ni Luh Kompiang Srinadi S.I.K., M.H.</strong></p>
+                    </div>
+                    <div class="participant-box">
+                        <h4>Anak Agung Gede Wirapati Dananjaya</h4>
+                        <h4>Anak Agung Bagus Teja Wibisana</h4>
+                        <p>Putra dari pasangan</p>
+                        <p><strong>A.A.Gd.Raka Sudharmayasa dan Tjokorda Istri Dewi Arini</strong></p>
+                    </div>
+                    <div class="participant-box">
+                        <h4>Anak Agung Istri Gita Semariyani</h4>
+                        <h4>Anak Agung Gede Agung Pradnyana</h4>
+                        <p>Putra dan Putri dari pasangan</p>
+                        <p><strong>A.A.Putra Jambe Semara dan A.A.Istri Ariyani</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-details">
+                <h3>Acara</h3>
+                <div class="line"></div>
+                <div class="row">
+                    <div>
+                        <img src="https://img.icons8.com/ios-filled/50/calendar.png" alt="Icon Kalender">
+                        <p>Tanggal</p>
+                        <p><strong>Sabtu</strong></p>
+                        <p><strong>18 Januari 2025</strong></p>
+                    </div>
+                    <div>
+                        <img src="https://img.icons8.com/ios-filled/50/clock.png" alt="Icon Jam">
+                        <p>Waktu</p>
+                        <p><strong>13:00 - Selesai</strong></p>
+                        <p><strong>WITA</strong></p>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+
+            <div class="map">
+                <h3>Lokasi</h3>
+                <h5>Alamat :   Jalan Raya Banjarangkan No.11, Dusun Selat, Desa Banjarangkan, Kec.Banjarangkan, Kab.Klungkung, Bali</h5>
+                <h5> (Kaja Kauh, Seberang Kantor Desa Banjarangkan)</h5>
+                <div class="line"></div>
+                <div class="row">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.5192198677084!2d115.36706372014906!3d-8.549214672135985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzInNTcuMiJTIDExNcKwMjInMDEuNCJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <p>Klik peta untuk melihat detail lebih lanjut di Google Maps.</p>
+            </div>
+
+            <div>
+                <p>Demikian undangan ini kami sampaikan. Atas perhatian dan kehadiran Bapak/Ibu/Saudara/i, kami ucapkan terima kasih.</p>
+                <p>Hormat kami,</p>
+                <p><strong>Jero Banjarangkan</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>Terima Kasih</h2>
+            <p>Semoga acara ini berjalan dengan lancar.</p>
+        </div>
+    </div>
+</body>
+</html>
